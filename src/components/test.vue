@@ -31,7 +31,7 @@
       <input type="text" v-on:keyup="pressedwithvalue" placeholder="alert what I entered"><br>
       <input type="text" v-on:keyup.enter="pressedEnter" v-on:keyup.delete="pressedDel" placeholder="alert for functional keys"><br>
 
-      <label>To compute to values:</label>
+      <label>To compute two or more values(using first name and last name as example):</label><br>
       <label>{{fullname}}</label>
 
 
@@ -77,6 +77,11 @@ export default {
           },
           pressedEnter: function(){
             alert("You pressed Enter")
+          }
+        },
+        computed: {
+          fullname: function(){
+            return this.user.fname + " " + this.user.mname;
           }
         }
 }
