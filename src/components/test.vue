@@ -15,6 +15,11 @@
       <p v-if="showUser">True</p>
       <p v-else>False</p>
 
+      <br><h1>Looping through items:</h1>
+      <ul>
+        <li v-for="item in items">{{item.title}}</li>
+      </ul>
+
 
   </div>
 
@@ -33,7 +38,13 @@ export default {
               age: 23,
               phone: '08069308561',
             },
-            showUser: false
+            showUser: false,
+            items:[
+              {title:'item 1'},
+              {title:'item 2'},
+              {title:'item 3'},
+              {title:'item 4'},
+            ]
           }
         },
 }
