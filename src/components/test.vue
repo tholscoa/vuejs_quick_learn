@@ -1,7 +1,7 @@
 <template>
   <div class="title">
     <h4>Using basic interpollation to display data:</h4>
-    <p>{{mynameis + user.name +" you are. " +" Your phone no is "+ user.phone}}</p>
+    <p>{{mynameis + user.fname +" you are. " +" Your phone no is "+ user.phone}}</p>
 
 
   <!-- another way to parse data -->
@@ -22,9 +22,17 @@
 
 
       <h4>Using v-model to change value:</h4>
-      <input type="text" v-model="user.name">
+      <input type="text" v-model="user.fname">
 
+      <h4>Using events:</h4>
+      <button v-on:click="justclicked">Click me!</button><br>
+      <button v-on:click="clickedwithparams('THANK YOU')">Click me with passed params THANK YOU!</button><br>
+      <input type="text" v-on:keyup="pressed" placeholder="just alert I press my key"><br>
+      <input type="text" v-on:keyup="pressedwithvalue" placeholder="alert what I entered"><br>
+      <input type="text" v-on:keyup.enter="pressedEnter" v-on:keyup.delete="pressedDel" placeholder="alert for functional keys"><br>
 
+      <label>To compute to values:</label>
+      <label>{{fullname}}</label>
 
 
   </div>
@@ -40,8 +48,8 @@ export default {
             mynameis: 'My name is ',
             test: '<strong>Test Successsful</strong>',
             user: {
-              name: 'Tolu',
-              age: 23,
+              fname: 'Tolu',
+              mname: 'Isaac',
               phone: '08069308561',
             },
             showUser: false,
@@ -51,6 +59,26 @@ export default {
             ]
           }
         },
+        methods:{
+          justclicked: function(){
+            alert("You just clicked me!")
+          },
+          clickedwithparams: function(thanks){
+            alert(thanks)
+          },
+          pressed:function(){
+            alert("you just pressed a key")
+          },
+          pressedwithvalue: function(e){
+            alert("You just pressed "+e.target.value)
+          },
+          pressedDel: function(){
+            alert("You pressed Del")
+          },
+          pressedEnter: function(){
+            alert("You pressed Enter")
+          }
+        }
 }
 </script>
 
