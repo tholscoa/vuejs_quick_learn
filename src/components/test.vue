@@ -34,6 +34,8 @@
       <label>To compute two or more values(using first name and last name as example):</label><br>
       <label>{{fullname}}</label>
 
+      <h1>{{msg}}</h1>
+
 
   </div>
 
@@ -82,6 +84,12 @@ export default {
         computed: {
           fullname: function(){
             return this.user.fname + " " + this.user.mname;
+          }
+        },
+        props: {
+          msg: {
+            type: String,
+            default: 'default test'
           }
         }
 }
